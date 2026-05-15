@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cuikfpvay01xk"]
+
+[ext_resource type="Texture2D" uid="uid://lyixy5hwut3n" path="res://Sprites/jogador/idle_front.png" id="1_k6dqt"]
+[ext_resource type="Script" uid="uid://dti2vpkacitx6" path="res://Scripts/jogador.gd" id="1_w43nc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
+
+[node name="Jogador" type="CharacterBody2D" unique_id=1757667886]
+script = ExtResource("1_w43nc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=855600548]
+shape = SubResource("CircleShape2D_edjgo")
+
+[node name="IdleFront" type="Sprite2D" parent="." unique_id=1054402771]
+position = Vector2(0, -9)
+texture = ExtResource("1_k6dqt")
+hframes = 12
