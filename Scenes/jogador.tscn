@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://c88frvnxxclfx" path="res://Sprites/jogador/Walk_front.png" id="19_6gsc3"]
 [ext_resource type="Texture2D" uid="uid://cid807apy8tlj" path="res://Sprites/jogador/Walk_side_left.png" id="20_ggjpi"]
 [ext_resource type="Texture2D" uid="uid://gwu8n1w4puah" path="res://Sprites/jogador/Walk_side_right.png" id="21_y0ck8"]
+[ext_resource type="Script" uid="uid://cvihcfdajskav" path="res://Scripts/player_state_machine.gd" id="22_x8oxr"]
+[ext_resource type="Script" uid="uid://c6or8ra2cu6wp" path="res://Scripts/state_idle.gd" id="23_237w6"]
+[ext_resource type="Script" uid="uid://cucrus6xvi6in" path="res://Scripts/state_walk.gd" id="24_816k2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
 
@@ -1146,3 +1149,12 @@ sprite_frames = SubResource("SpriteFrames_xs0eb")
 animation = &"death_right"
 frame = 1
 frame_progress = 0.22791642
+
+[node name="StateMachine" type="Node" parent="." unique_id=545674123]
+script = ExtResource("22_x8oxr")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=61916059]
+script = ExtResource("23_237w6")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1698304930]
+script = ExtResource("24_816k2")
