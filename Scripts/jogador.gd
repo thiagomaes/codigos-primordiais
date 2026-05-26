@@ -10,11 +10,13 @@ func _ready() -> void:
 	state_machine.Initialize(self)
 
 func _process(delta):
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 	
 	if direction != Vector2.ZERO:
-		cardinal_direction = direction.normalized()
+		cardinal_direction = direction
 
 func _physics_process(delta):
 	move_and_slide()

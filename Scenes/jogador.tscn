@@ -25,7 +25,8 @@
 [ext_resource type="Script" uid="uid://c6or8ra2cu6wp" path="res://Scripts/state_idle.gd" id="23_237w6"]
 [ext_resource type="Script" uid="uid://cucrus6xvi6in" path="res://Scripts/state_walk.gd" id="24_816k2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_816k2"]
+size = Vector2(11, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2tow"]
 atlas = ExtResource("2_hlom6")
@@ -1139,16 +1140,20 @@ animations = [{
 }]
 
 [node name="Jogador" type="CharacterBody2D" unique_id=1757667886]
+z_index = 1
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.17453292
 script = ExtResource("1_w43nc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=855600548]
-shape = SubResource("CircleShape2D_edjgo")
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_816k2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1861520603]
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_xs0eb")
-animation = &"death_right"
-frame = 1
-frame_progress = 0.22791642
+animation = &"idle_front"
 
 [node name="StateMachine" type="Node" parent="." unique_id=545674123]
 script = ExtResource("22_x8oxr")
@@ -1158,3 +1163,5 @@ script = ExtResource("23_237w6")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1698304930]
 script = ExtResource("24_816k2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1232937122]
