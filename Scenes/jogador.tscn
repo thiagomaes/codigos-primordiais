@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://cvihcfdajskav" path="res://Scripts/player_state_machine.gd" id="22_x8oxr"]
 [ext_resource type="Script" uid="uid://c6or8ra2cu6wp" path="res://Scripts/state_idle.gd" id="23_237w6"]
 [ext_resource type="Script" uid="uid://cucrus6xvi6in" path="res://Scripts/state_walk.gd" id="24_816k2"]
+[ext_resource type="Script" uid="uid://duxwgum8jmpr" path="res://Scripts/PlayerCamera.gd" id="25_0xcfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_816k2"]
 size = Vector2(11, 10)
@@ -1165,3 +1166,9 @@ script = ExtResource("23_237w6")
 script = ExtResource("24_816k2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1232937122]
+limit_left = -300
+limit_top = -300
+limit_right = 300
+limit_bottom = 300
+editor_draw_limits = true
+script = ExtResource("25_0xcfn")
