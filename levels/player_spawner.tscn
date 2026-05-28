@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ddqv5d0nko3mu"]
+
+[ext_resource type="Texture2D" uid="uid://lyixy5hwut3n" path="res://Sprites/jogador/idle_front.png" id="1_ebbej"]
+[ext_resource type="Script" uid="uid://0rg3v8gsh7ea" path="res://levels/Scripts/player_spawn.gd" id="1_gs0g5"]
+
+[node name="PlayerSpawner" type="Node2D" unique_id=1945995308]
+script = ExtResource("1_gs0g5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=581947159]
+modulate = Color(0.6117647, 1, 0.29411766, 0.8)
+position = Vector2(0, -5)
+texture = ExtResource("1_ebbej")
+hframes = 12
