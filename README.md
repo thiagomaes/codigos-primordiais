@@ -7,7 +7,8 @@ Repositório único contendo o website e o jogo.
 ```text
 website/
   index.html
-  assets/
+  package.json
+  src/
 
 game/
   project.godot
@@ -21,10 +22,20 @@ game/
 
 ## Pastas
 
-- `website/`: site institucional / landing page do jogo.
+- `website/`: site institucional em React + Vite.
 - `game/`: projeto Godot com código, cenas, sprites e exports relacionados ao jogo.
 
 ## Observações
 
-- O ponto de entrada do site é `website/index.html`.
+- O ponto de entrada do site é `website/index.html`, com a aplicação React em `website/src/`.
 - O ponto de entrada do jogo é `game/project.godot`.
+
+## Website
+
+Para rodar o site localmente:
+
+```bash
+cd website
+npm install
+npm run dev
+```
