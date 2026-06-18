@@ -58,11 +58,11 @@ func _on_answer_result(correct: bool) -> void:
 func _on_answer_correct() -> void:
 	MissionManager.complete_mission()
 	MissionManager.advance_level()
-	dialog_box.start(["Correto! Volte ao Velhinho para a próxima missão!"], "Bancada")
+	dialog_box.start(["Correto! Volte ao Guia para a próxima missão!"], "Bancada")
 
 func _on_answer_wrong() -> void:
 	MissionManager.fail_mission()
-	dialog_box.start(["Errado! Volte ao Velhinho para uma nova missão."], "Bancada")
+	dialog_box.start(["Errado! Volte ao Guia para uma nova missão."], "Bancada")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jogador"):

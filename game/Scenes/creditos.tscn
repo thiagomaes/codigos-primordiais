@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://btofkc3dqfx8q"]
+
+[ext_resource type="Script" uid="uid://loyh3ok7gbld" path="res://Scenes/creditos.gd" id="1_eml6v"]
+[ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_ykkye"]
+
+[node name="Creditos" type="Control" unique_id=1424379025]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eml6v")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=960362431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(466, -38)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2059348721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367255348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -62.5
+offset_right = 158.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=204669523]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ykkye")
+theme_override_font_sizes/font_size = 20
+text = "Códigos Primordiais"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1691997342]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ykkye")
+theme_override_font_sizes/font_size = 16
+text = "Desenvolvido por"
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=2094502553]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ykkye")
+theme_override_font_sizes/font_size = 15
+text = "Thiago, Gabriel, João, Leonardo, Lucas e Geison"
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=953100200]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ykkye")
+text = "Obrigado por jogar!"
+
+[node name="Timer" type="Timer" parent="." unique_id=1825608013]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://2jetxwfnwjpu" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://drsowsfuobhbu" path="res://Sprites/Captura de Tela 2026-06-16 às 21.48.54.png" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_1ehe0"]
-[ext_resource type="AudioStream" uid="uid://b6lalv2cxt1sg" path="res://Music/medieval_music.mp3" id="4_ce3w2"]
+[ext_resource type="AudioStream" uid="uid://chxhytlocg2ef" path="res://Music/medieval_music.mp3" id="4_ce3w2"]
 [ext_resource type="Script" uid="uid://f7yfugm81i3a" path="res://Scenes/audio_control.gd" id="4_n45e2"]
 [ext_resource type="Script" uid="uid://182lfoo6t0g0" path="res://Scenes/fullscream_control.gd" id="5_opfnp"]
 

@@ -3,7 +3,16 @@
 [ext_resource type="Script" uid="uid://cf3no40uqyth5" path="res://GUI/answer_box.gd" id="1_0sinv"]
 
 [node name="AnswerBox" type="CanvasLayer" unique_id=1419809980 groups=["answer_box"]]
+process_mode = 3
 script = ExtResource("1_0sinv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1687150853]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
 
 [node name="Control" type="Control" parent="." unique_id=1229452226]
 layout_mode = 3

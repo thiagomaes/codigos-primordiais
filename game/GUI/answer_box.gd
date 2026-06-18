@@ -21,11 +21,19 @@ func show_question(options: Array, correct_index: int) -> void:
 	btn_a.text = "A) %d placas" % options[0]
 	btn_b.text = "B) %d placas" % options[1]
 	btn_c.text = "C) %d placas" % options[2]
+	
 	visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Pausa o jogo assim que a pergunta aparece (bloqueia movimento do jogador e inimigos)
+	get_tree().paused = true 
 
 func _on_answer_pressed(index: int) -> void:
 	visible = false
+	
+	# Despausa o jogo assim que uma resposta é clicada
+	get_tree().paused = false 
+	
 	if index == correct_answer:
 		answer_selected.emit(true)
 	else:

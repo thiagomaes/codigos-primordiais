@@ -1,24 +1,121 @@
 [gd_scene format=3 uid="uid://bwyiisbf5rdsq"]
 
 [ext_resource type="Script" uid="uid://lapqdpwgffok" path="res://NPC/npc.gd" id="1_asys0"]
+[ext_resource type="Texture2D" uid="uid://cld567cqj555f" path="res://Sprites/Characters/Character_citizens_animation/Citizen3_Idle_with_shadow.png" id="2_3etx6"]
 [ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_056qb"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3etx6"]
-size = Vector2(16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1h6f"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6swda"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovd1"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u08xh"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2dqh"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bey1f"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhshi"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecfdr"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx1mh"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aei7b"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j1p6"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj5ba"]
+atlas = ExtResource("2_3etx6")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wi8x7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1h6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6swda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u08xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2dqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bey1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhshi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecfdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx1mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aei7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j1p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj5ba")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1h6f"]
-size = Vector2(16, 16)
+size = Vector2(14, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6swda"]
 radius = 20.0
 
 [node name="Npc" type="CharacterBody2D" unique_id=155751682]
+collision_layer = 255
+collision_mask = 255
 script = ExtResource("1_asys0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1764351703]
-texture = SubResource("PlaceholderTexture2D_3etx6")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1518655765]
+sprite_frames = SubResource("SpriteFrames_wi8x7")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.6410469
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150744194]
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_k1h6f")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=448640959]
@@ -27,10 +124,10 @@ shape = SubResource("RectangleShape2D_k1h6f")
 shape = SubResource("CircleShape2D_6swda")
 
 [node name="Label" type="Label" parent="." unique_id=1286253979]
-offset_left = -6.0
-offset_top = -12.0
-offset_right = 7.0
-offset_bottom = -8.0
+offset_left = -7.0
+offset_top = -18.0
+offset_right = 6.0
+offset_bottom = -14.0
 theme_override_fonts/font = ExtResource("2_056qb")
 theme_override_font_sizes/font_size = 4
 text = "-> E <-"

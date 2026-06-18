@@ -22,15 +22,45 @@ func open_dialog() -> void:
 	if dialog_box == null:
 		push_error("DialogBox não encontrada!")
 		return
-	if MissionManager.active:
-		dialog_box.start(["Você já tem uma missão ativa!", "Vá até a área 1."], "Velhinho")
+		
+	# Trava o movimento do jogador
+	get_tree().call_group("jogador", "set_can_move", false)
+	
+	# Diálogo de jogo finalizado (Todas as missões completas)
+	if MissionManager.current_level > MissionManager.LEVELS.size():
+		dialog_box.start([
+			"Muito bem, aventureiro!",
+			"As pontes voltaram a funcionar perfeitamente.",
+			"Agradeço imensamente pela sua ajuda."
+		], "Guia")
+		dialog_box.dialog_finished.connect(_on_game_finished, CONNECT_ONE_SHOT)
 		return
+		
+	# Diálogo de aviso (Missão já está ativa)
+	if MissionManager.active:
+		dialog_box.start([
+			"Você ainda tem uma tarefa pendente.",
+			"Verifique a área indicada e conclua o conserto."
+		], "Guia")
+		dialog_box.dialog_finished.connect(_on_warning_dialog_finished, CONNECT_ONE_SHOT)
+		return
+		
+	# Diálogo de nova missão
 	MissionManager.generate_mission()
-	dialog_box.start(MissionManager.get_dialog_text(), "Velhinho")
+	dialog_box.start(MissionManager.get_dialog_text(), "Guia")
 	dialog_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
 
+func _on_warning_dialog_finished() -> void:
+	# Libera o jogador após o aviso
+	get_tree().call_group("jogador", "set_can_move", true)
+
 func _on_dialog_finished() -> void:
+	# Libera o jogador ao fim do diálogo da nova missão e ativa a seta
+	get_tree().call_group("jogador", "set_can_move", true)
 	get_tree().call_group("mission_arrow", "activate")
+
+func _on_game_finished() -> void:
+	LevelManager.load_new_level("res://Scenes/creditos.tscn", "", Vector2.ZERO)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jogador"):

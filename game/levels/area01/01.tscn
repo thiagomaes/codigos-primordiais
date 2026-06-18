@@ -37,6 +37,7 @@ side = 3
 
 [node name="Bancada" parent="." unique_id=1534669827 instance=ExtResource("8_lkonf")]
 position = Vector2(344, 62)
+collision_layer = 16
 
 [node name="AnswerBox" parent="." unique_id=1419809980 instance=ExtResource("9_skxhh")]
 

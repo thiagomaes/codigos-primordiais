@@ -39,7 +39,8 @@ func get_current_level_path() -> String:
 	return LEVELS.get(current_level, LEVELS[1])
 
 func advance_level() -> void:
-	if current_level < LEVELS.size():
+	# Agora o nível pode chegar a 4, ativando o final do jogo na Guia!
+	if current_level <= LEVELS.size():
 		current_level += 1
 
 func get_dialog_text() -> Array[String]:
@@ -50,6 +51,6 @@ func get_dialog_text() -> Array[String]:
 		"por %d metros de largura." % largura,
 		"Cada placa cobre %d metros quadrados." % area_placa,
 		"Quantas placas precisamos?",
-		"Vá até a área 1 e descubra!"
+		"Siga a seta até a área %d e faça o conserto!" % current_level # <--- O truque está aqui!
 	]
 	return lines
