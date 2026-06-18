@@ -44,13 +44,22 @@ func advance_level() -> void:
 		current_level += 1
 
 func get_dialog_text() -> Array[String]:
-	var lines: Array[String] = [
-		"Olá, aventureiro!",
-		"Preciso da sua ajuda para consertar a ponte.",
-		"A abertura tem %d metros de comprimento" % comprimento,
-		"por %d metros de largura." % largura,
-		"Cada placa cobre %d metros quadrados." % area_placa,
-		"Quantas placas precisamos?",
-		"Siga a seta até a área %d e faça o conserto!" % current_level # <--- O truque está aqui!
-	]
+	var lines: Array[String] = []
+	
+	# Se for a PRIMEIRA vez que o jogador fala com ele (Nível 1)
+	if current_level == 1:
+		lines.append("Olá, aventureiro!")
+		lines.append("Estou tentando terminar a construção da minha casa, mas travei em uma etapa.")
+	# Se for o Nível 2 ou 3 (Ele já te ajudou antes, então agradecemos!)
+	else:
+		lines.append("Ah, você voltou! Muito obrigado por ter resolvido os cálculos da área anterior.")
+		lines.append("Graças a você, consegui avançar bastante na construção da casa!")
+		lines.append("Porém, me deparei com um novo problema...")
+
+	# O resto do texto serve para qualquer um dos níveis
+	lines.append("Os próximos materiais também estão me deixando maluco!")
+	lines.append("Você poderia me dar mais uma mãozinha com isso?")
+	lines.append("Por favor, vá até a bancada de trabalho na Área %d." % current_level)
+	lines.append("Conto com a sua ajuda!")
+	
 	return lines

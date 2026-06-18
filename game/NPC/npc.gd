@@ -26,7 +26,7 @@ func open_dialog() -> void:
 	# Trava o movimento do jogador
 	get_tree().call_group("jogador", "set_can_move", false)
 	
-	# Diálogo de jogo finalizado (Todas as missões completas)
+	# 1. Diálogo de jogo finalizado (Todas as missões completas)
 	if MissionManager.current_level > MissionManager.LEVELS.size():
 		dialog_box.start([
 			"Muito bem, aventureiro!",
@@ -36,20 +36,20 @@ func open_dialog() -> void:
 		dialog_box.dialog_finished.connect(_on_game_finished, CONNECT_ONE_SHOT)
 		return
 		
-	# Diálogo de aviso (Missão já está ativa)
+	# 2. Diálogo de aviso (Missão já está ativa)
 	if MissionManager.active:
 		dialog_box.start([
-			"Você ainda tem uma tarefa pendente.",
-			"Verifique a área indicada e conclua o conserto."
+			"Você ainda não foi até a bancada?",
+			"Estou aguardando os cálculos da Área %d para continuarmos a obra!" % MissionManager.current_level
 		], "Guia")
 		dialog_box.dialog_finished.connect(_on_warning_dialog_finished, CONNECT_ONE_SHOT)
 		return
 		
-	# Diálogo de nova missão
+	# 3. Diálogo de nova missão
 	MissionManager.generate_mission()
 	dialog_box.start(MissionManager.get_dialog_text(), "Guia")
 	dialog_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
-
+	
 func _on_warning_dialog_finished() -> void:
 	# Libera o jogador após o aviso
 	get_tree().call_group("jogador", "set_can_move", true)

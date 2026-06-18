@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://2jetxwfnwjpu" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://drsowsfuobhbu" path="res://Sprites/Captura de Tela 2026-06-16 às 21.48.54.png" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_1ehe0"]
-[ext_resource type="AudioStream" uid="uid://chxhytlocg2ef" path="res://Music/medieval_music.mp3" id="4_ce3w2"]
 [ext_resource type="Script" uid="uid://f7yfugm81i3a" path="res://Scenes/audio_control.gd" id="4_n45e2"]
 [ext_resource type="Script" uid="uid://182lfoo6t0g0" path="res://Scenes/fullscream_control.gd" id="5_opfnp"]
 
@@ -254,11 +253,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 8
 script = ExtResource("5_opfnp")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2041507782]
-stream = ExtResource("4_ce3w2")
-autoplay = true
-bus = &"Music"
 
 [connection signal="pressed" from="MainButtons/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_button_2_pressed"]

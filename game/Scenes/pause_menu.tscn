@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://wqwdvkwla5ip"]
+
+[ext_resource type="Script" uid="uid://bg4yj8s3o6xdn" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_bpi0q"]
+[ext_resource type="Script" uid="uid://f7yfugm81i3a" path="res://Scenes/audio_control.gd" id="3_vmyb1"]
+[ext_resource type="Script" uid="uid://182lfoo6t0g0" path="res://Scenes/fullscream_control.gd" id="4_myy0f"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sjs17"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_u8tnp"]
+color = Color(0.39654276, 0.5293844, 0.9965636, 1)
+thickness = 2
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=283572949]
+process_mode = 3
+script = ExtResource("1_emv3i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=737162281]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=757173791]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnVoltar" type="Button" parent="VBoxContainer" unique_id=88335041]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Voltar"
+
+[node name="BtnOpcoes" type="Button" parent="VBoxContainer" unique_id=659762780]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Opções"
+
+[node name="BtnSair" type="Button" parent="VBoxContainer" unique_id=1061234414]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Sair"
+
+[node name="MenuOpcoes" type="VBoxContainer" parent="." unique_id=1074798848]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuOpcoes" unique_id=314374494]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuOpcoes/HBoxContainer" unique_id=1879483820]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Volume"
+
+[node name="AudioControl" type="HSlider" parent="MenuOpcoes/HBoxContainer" unique_id=1698793862]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_sjs17")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_u8tnp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_u8tnp")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_vmyb1")
+audio_bus_name = "Music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuOpcoes" unique_id=1793767133]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuOpcoes/HBoxContainer2" unique_id=1426724913]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Tela cheia"
+
+[node name="FullscreamControl" type="CheckButton" parent="MenuOpcoes/HBoxContainer2" unique_id=918563625]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+script = ExtResource("4_myy0f")
+
+[node name="BtnVoltarOpcoes" type="Button" parent="MenuOpcoes" unique_id=279395243]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpi0q")
+theme_override_font_sizes/font_size = 8
+text = "Voltar"
+
+[connection signal="value_changed" from="MenuOpcoes/HBoxContainer/AudioControl" to="MenuOpcoes/HBoxContainer/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="MenuOpcoes/HBoxContainer2/FullscreamControl" to="MenuOpcoes/HBoxContainer2/FullscreamControl" method="_on_toggled"]

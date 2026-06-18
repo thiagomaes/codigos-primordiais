@@ -25,6 +25,8 @@ LevelManager="*uid://dm4cevd8spjs0"
 PlayerManager="*uid://b0j0r5hnttvwh"
 SceneTransition="*uid://crqwgj7bqaeh3"
 MissionManager="*uid://b6pbhoes44nvk"
+PauseMenu="*uid://wqwdvkwla5ip"
+MusicaFundo="*uid://csjd22d00sobh"
 
 [display]
 
