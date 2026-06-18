@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cocwjyn6i38mb"]
+
+[ext_resource type="Script" uid="uid://4sqxbxqs8jap" path="res://GUI/mission_arrow.gd" id="1_gse4o"]
+
+[node name="MissionArrow" type="CanvasLayer" unique_id=42930565]
+script = ExtResource("1_gse4o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=39452411]
+offset_right = 40.0
+offset_bottom = 40.0

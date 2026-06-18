@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://2jetxwfnwjpu" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://drsowsfuobhbu" path="res://Sprites/Captura de Tela 2026-06-16 às 21.48.54.png" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://b6lalv2cxt1sg" path="res://Music/medieval_music.mp3" id="4_ce3w2"]
+[ext_resource type="Script" uid="uid://f7yfugm81i3a" path="res://Scenes/audio_control.gd" id="4_n45e2"]
+[ext_resource type="Script" uid="uid://182lfoo6t0g0" path="res://Scenes/fullscream_control.gd" id="5_opfnp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ce3w2"]
 texture = ExtResource("1_48xlc")
@@ -34,6 +37,14 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_n45e2"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_opfnp"]
+color = Color(0.39654276, 0.5293844, 0.9965636, 1)
+thickness = 2
+
 [node name="main_menu" type="Control" unique_id=453725419]
 layout_mode = 3
 anchors_preset = 15
@@ -43,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ehe0")
 
-[node name="Panel" type="Panel" parent="." unique_id=1690471045]
+[node name="Background" type="Panel" parent="." unique_id=1690471045]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +64,8 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ce3w2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1911114051]
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1911114051]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=668501421]
+[node name="Button" type="Button" parent="MainButtons" unique_id=668501421]
 custom_minimum_size = Vector2(80, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -84,7 +96,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Iniciar jogo"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=936391796]
+[node name="Button2" type="Button" parent="MainButtons" unique_id=936391796]
 custom_minimum_size = Vector2(80, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -100,7 +112,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Opções"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1694334408]
+[node name="Button3" type="Button" parent="MainButtons" unique_id=1694334408]
 custom_minimum_size = Vector2(80, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -139,6 +151,118 @@ text = "Códigos Primordiais"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[node name="Options" type="Panel" parent="." unique_id=1562976294]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.25
+offset_top = -28.0
+offset_right = 55.25
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=2046520250]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Options" unique_id=1192991421]
+custom_minimum_size = Vector2(80, 20)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -28.0
+offset_right = 40.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+text = "Voltar
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=384819038]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -25.5
+offset_right = 41.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer" unique_id=1553275285]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/VBoxContainer/HBoxContainer" unique_id=381704637]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 8
+text = "Volume"
+
+[node name="AudioControl" type="HSlider" parent="Options/VBoxContainer/HBoxContainer" unique_id=2093217017]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_n45e2")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_opfnp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_opfnp")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_n45e2")
+audio_bus_name = "Music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Options/VBoxContainer" unique_id=1892063553]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/VBoxContainer/HBoxContainer2" unique_id=943500766]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 8
+text = "Tela cheia"
+
+[node name="FullscreamControl" type="CheckButton" parent="Options/VBoxContainer/HBoxContainer2" unique_id=409894150]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 8
+script = ExtResource("5_opfnp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2041507782]
+stream = ExtResource("4_ce3w2")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="MainButtons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MainButtons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer/AudioControl" to="Options/VBoxContainer/HBoxContainer/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/VBoxContainer/HBoxContainer2/FullscreamControl" to="Options/VBoxContainer/HBoxContainer2/FullscreamControl" method="_on_toggled"]

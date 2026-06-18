@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cc5m72upltvnw"]
+
+[ext_resource type="Script" uid="uid://b6pbhoes44nvk" path="res://Mission/mission_manager.gd" id="1_rsvpq"]
+
+[node name="MissionManager" type="Node2D" unique_id=729058240]
+script = ExtResource("1_rsvpq")

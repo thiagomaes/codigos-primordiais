@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dlb65q3cyofxl"]
+
+[ext_resource type="Script" uid="uid://cf3no40uqyth5" path="res://GUI/answer_box.gd" id="1_0sinv"]
+
+[node name="AnswerBox" type="CanvasLayer" unique_id=1419809980 groups=["answer_box"]]
+script = ExtResource("1_0sinv")
+
+[node name="Control" type="Control" parent="." unique_id=1229452226]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2120560953]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1484521785]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=232353556]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer" unique_id=347323112]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer" unique_id=1736300536]
+layout_mode = 2

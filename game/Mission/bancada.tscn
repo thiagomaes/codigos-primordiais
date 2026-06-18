@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://mkvt307qh6g7"]
+
+[ext_resource type="Script" uid="uid://baag1d4yb2vh7" path="res://Mission/bancada.gd" id="1_67upa"]
+[ext_resource type="Texture2D" uid="uid://c1fe4hwx0p2ap" path="res://Tile Maps/Sprites/Objects.png" id="1_pojy1"]
+[ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_67upa"]
+[ext_resource type="PackedScene" uid="uid://dlb65q3cyofxl" path="res://GUI/answer_box.tscn" id="4_ufrpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufrpd"]
+size = Vector2(43, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5x36"]
+size = Vector2(17, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00rb8"]
+size = Vector2(17, 18.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sd27"]
+radius = 50.0
+
+[node name="Bancada" type="StaticBody2D" unique_id=1534669827]
+script = ExtResource("1_67upa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=741986424]
+texture = ExtResource("1_pojy1")
+hframes = 6
+vframes = 8
+frame = 44
+
+[node name="table" type="CollisionShape2D" parent="Sprite2D" unique_id=1465866918]
+position = Vector2(1.5, -13)
+shape = SubResource("RectangleShape2D_ufrpd")
+debug_color = Color(0.7368432, 0.32030278, 0.8601839, 0.41960785)
+
+[node name="chest" type="CollisionShape2D" parent="Sprite2D" unique_id=431588305]
+position = Vector2(22.5, -1.5)
+shape = SubResource("RectangleShape2D_v5x36")
+debug_color = Color(0.9389079, 0.24901989, 0, 0.41960785)
+
+[node name="box" type="CollisionShape2D" parent="Sprite2D" unique_id=457040987]
+position = Vector2(-15, -2.25)
+shape = SubResource("RectangleShape2D_00rb8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=84970177]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=704798054]
+shape = SubResource("CircleShape2D_6sd27")
+debug_color = Color(0.17867535, 0.6259908, 0.43005535, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=311224084]
+offset_left = -6.0
+offset_top = -31.0
+offset_right = 7.0
+offset_bottom = -27.0
+theme_override_fonts/font = ExtResource("2_67upa")
+theme_override_font_sizes/font_size = 4
+text = "-> E <-"
+
+[node name="AnswerBox" parent="." unique_id=1419809980 instance=ExtResource("4_ufrpd")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

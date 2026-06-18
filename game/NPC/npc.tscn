@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bwyiisbf5rdsq"]
+
+[ext_resource type="Script" uid="uid://lapqdpwgffok" path="res://NPC/npc.gd" id="1_asys0"]
+[ext_resource type="FontFile" uid="uid://ctj6xmdsc5apk" path="res://Fonts/KiwiSoda.ttf" id="2_056qb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3etx6"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1h6f"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6swda"]
+radius = 20.0
+
+[node name="Npc" type="CharacterBody2D" unique_id=155751682]
+script = ExtResource("1_asys0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1764351703]
+texture = SubResource("PlaceholderTexture2D_3etx6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150744194]
+shape = SubResource("RectangleShape2D_k1h6f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448640959]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=565547300]
+shape = SubResource("CircleShape2D_6swda")
+
+[node name="Label" type="Label" parent="." unique_id=1286253979]
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 7.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("2_056qb")
+theme_override_font_sizes/font_size = 4
+text = "-> E <-"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
